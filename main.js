@@ -147,6 +147,30 @@ const childrenSquares = [
 
     // restore saved styles (for other examples)
     ctx.restore()
+
+
+    // TEXT
+
+    // usual setup
+    ctx.save()
+    ctx.strokeStyle = 'red'
+    ctx.fillStyle = 'black'
+
+    // text specific styles
+    ctx.font = 'bold 16px Monospace'
+    ctx.textAlign = 'left'
+    ctx.textBaseline = 'alphabetic'
+
+    // draw stroked text to screen
+    ctx.strokeText('Stroked Text', 50, 250)
+
+    // calculate the width of this text using current font/styles
+    const textWidth = ctx.measureText('Stroked Text').width
+
+    // X = previous X position + width + 25px margin
+    ctx.fillText('Filled Text', 50 + textWidth + 25, 250)
+
+    ctx.restore()
   
 }
 
